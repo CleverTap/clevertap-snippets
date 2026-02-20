@@ -1,0 +1,4107 @@
+{
+  "info": {
+    "_postman_id": "7cc163d7-e484-4796-b605-7ebcde48bcde",
+    "name": "CleverTap API Copy",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "28775174"
+  },
+  "item": [
+    {
+      "name": "External Trigger API Endpoints",
+      "item": [
+        {
+          "name": "External Trigger API (Single Campaign)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-CleverTap-Account-Id",
+                "value": "{{id}}"
+              },
+              {
+                "key": "X-CleverTap-Passcode",
+                "value": "{{passcode}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"to\": {\n    \"Email\": [\n      \"john@doe.com\"\n    ]\n  },\n  \"campaign_id\": 1000000043\n}"
+            },
+            "url": {
+              "raw": "https://{{base_url}}/1/send/externaltrigger.json",
+              "protocol": "https",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "1",
+                "send",
+                "externaltrigger.json"
+              ]
+            },
+            "description": "Trigger single campaign for users via API"
+          },
+          "response": [
+            {
+              "name": "Sample Response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [],
+              "cookie": [],
+              "body": "{\n  \"message\": \"Added to queue for processing\",\n  \"status\": \"success\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "External Trigger API (Multiple Campaigns)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-CleverTap-Account-Id",
+                "value": "{{id}}"
+              },
+              {
+                "key": "X-CleverTap-Passcode",
+                "value": "{{passcode}}"
+              },
+              {
+                "key": "X-CleverTap-Token",
+                "value": "TOKEN"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ExternalTrigger\": [\n    {\n      \"to\": {\n        \"Email\": [\n          \"john@doe.com\"\n        ]\n      },\n      \"campaign_id\": 1000000043\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "https://{{base_url}}/2/send/externaltrigger.json",
+              "protocol": "https",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "2",
+                "send",
+                "externaltrigger.json"
+              ]
+            },
+            "description": "Trigger multiple campaigns for users via API"
+          },
+          "response": [
+            {
+              "name": "Sample Response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [],
+              "cookie": [],
+              "body": "{\n  \"message\": \"Added to queue for processing\",\n  \"status\": \"success\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Report API Endpoints",
+      "item": [
+        {
+          "name": "Real-Time Counts API",
+          "item": [
+            {
+              "name": "Real-Time Counts API",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-CleverTap-Account-Id",
+                    "value": "{{id}}"
+                  },
+                  {
+                    "key": "X-CleverTap-Passcode",
+                    "value": "{{passcode}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user_type\": true,\n  \"session_source\": true,\n  \"browser\": true,\n  \"os\": true,\n  \"device\": true,\n  \"new\": true\n}"
+                },
+                "url": {
+                  "raw": "https://{{base_url}}/1/now.json",
+                  "protocol": "https",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "1",
+                    "now.json"
+                  ]
+                },
+                "description": "https://developer.clevertap.com/docs/real-time-counts-api#section-overview"
+              },
+              "response": [
+                {
+                  "name": "Sample Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "Text",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\n  \"status\": \"success\",\n  \"count\": 214,\n  \"user_type\": {\n    \"new\": 58\n  }\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Trends API",
+          "item": [
+            {
+              "name": "Partial API",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "var result = JSON.parse(responseBody);",
+                      "pm.globals.set(\"req_id\",result.req_id);"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-CleverTap-Account-Id",
+                    "value": "{{id}}"
+                  },
+                  {
+                    "key": "X-CleverTap-Passcode",
+                    "value": "{{passcode}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "{{type}}"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{base_url}}/1/counts/trends.json?req_id={{req_id}}",
+                  "protocol": "https",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "1",
+                    "counts",
+                    "trends.json"
+                  ],
+                  "query": [
+                    {
+                      "key": "req_id",
+                      "value": "{{req_id}}"
+                    }
+                  ]
+                },
+                "description": "Get partial response for Trends API. Note: The req_id value comes from the POST Trends API response. First call the POST endpoint to get req_id, then use it in this GET endpoint."
+              },
+              "response": [
+                {
+                  "name": "Sample Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "Text",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\n  \"status\": \"partial\",\n  \"req_id\": 384649162721759\n}"
+                }
+              ]
+            },
+            {
+              "name": "Trends API",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "var result = JSON.parse(responseBody);",
+                      "pm.globals.set(\"reqid\",result.req_id);"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-CleverTap-Account-Id",
+                    "value": "{{id}}"
+                  },
+                  {
+                    "key": "X-CleverTap-Passcode",
+                    "value": "{{passcode}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"event_name\": \"UTM Visited\",\n  \"from\": 20250101,\n  \"to\": 20251231,\n  \"unique\": false,\n  \"groups\": {\n    \"foo\": {\n      \"trend_type\": \"daily\"\n    },\n    \"bar\": {\n      \"trend_type\": \"weekly\"\n    },\n    \"foobar\": {\n      \"trend_type\": \"monthly\"\n    }\n  }\n}"
+                },
+                "url": {
+                  "raw": "https://{{base_url}}/1/counts/trends.json",
+                  "protocol": "https",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "1",
+                    "counts",
+                    "trends.json"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Sample Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "Text",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\n  \"status\": \"success\",\n  \"foo\": {\n    \"20161224\": 10,\n    \"20161225\": 10\n  },\n  \"bar\": {\n    \"201652\": 80,\n    \"201701\": 30\n  }\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Get Message Reports API",
+          "item": [
+            {
+              "name": "Get Message Reports API",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-CleverTap-Account-Id",
+                    "value": "{{id}}"
+                  },
+                  {
+                    "key": "X-CleverTap-Passcode",
+                    "value": "{{passcode}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"from\": 20250111,\n  \"to\": 20251030,\n  \"daily\": false,\n  \"channel\": [\n    \"push\"\n  ],\n  \"delivery\": [\n    \"inaction\",\n    \"action\"\n  ],\n  \"status\": [\n    \"completed\"\n  ],\n  \"message_type\": [\n    \"single\"\n  ],\n  \"label\": []\n}"
+                },
+                "url": {
+                  "raw": "https://{{base_url}}/1/message/report.json",
+                  "protocol": "https",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "1",
+                    "message",
+                    "report.json"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Sample Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "Text",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\n  \"status\": \"success\",\n  \"total_results\": 100,\n  \"messages\": [\n    {\n      \"message id\": 123,\n      \"data\": [],\n      \"channel\": \"push\",\n      \"status\": \"completed\"\n    }\n  ]\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Top Property Counts API",
+          "item": [
+            {
+              "name": "Partial API",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "var result = JSON.parse(responseBody);",
+                      "pm.globals.set(\"req_id\",result.req_id);"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-CleverTap-Account-Id",
+                    "value": "{{id}}"
+                  },
+                  {
+                    "key": "X-CleverTap-Passcode",
+                    "value": "{{passcode}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{base_url}}/1/counts/top.json?req_id={{reqid}}",
+                  "protocol": "https",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "1",
+                    "counts",
+                    "top.json"
+                  ],
+                  "query": [
+                    {
+                      "key": "req_id",
+                      "value": "{{reqid}}"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Sample Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "Text",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\n  \"status\": \"partial\",\n  \"req_id\": 384649162721759\n}"
+                }
+              ]
+            },
+            {
+              "name": "Top Property Counts API",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "var result = JSON.parse(responseBody);",
+                      "pm.globals.set(\"reqid\",result.req_id);"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-CleverTap-Account-Id",
+                    "value": "{{id}}"
+                  },
+                  {
+                    "key": "X-CleverTap-Passcode",
+                    "value": "{{passcode}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"event_name\": \"PV\",\n  \"from\": 20250101,\n  \"to\": 20251231,\n  \"groups\": {\n    \"foo\": {\n      \"property_type\": \"event_properties\",\n      \"name\": \"Category\"\n    }\n  }\n}"
+                },
+                "url": {
+                  "raw": "https://{{base_url}}/1/counts/top.json",
+                  "protocol": "https",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "1",
+                    "counts",
+                    "top.json"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Sample Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "Text",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\n  \"status\": \"success\",\n  \"foo\": {\n    \"NUMBER\": {\n      \"0-100\": 10,\n      \"100-200\": 9\n    }\n  },\n  \"bar\": {\n    \"STR\": {\n      \"Gold\": 5,\n      \"Silver\": 10\n    }\n  }\n}"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Campaign API Endpoints",
+      "item": [
+        {
+          "name": "Stop Scheduled Campaign API",
+          "item": [
+            {
+              "name": "Stop Scheduled Campaign API",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-CleverTap-Account-Id",
+                    "value": "{{id}}"
+                  },
+                  {
+                    "key": "X-CleverTap-Passcode",
+                    "value": "{{passcode}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": 1457432766\n}"
+                },
+                "url": {
+                  "raw": "https://{{base_url}}/1/targets/stop.json",
+                  "protocol": "https",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "1",
+                    "targets",
+                    "stop.json"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Sample Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "Text",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\n  \"status\": \"success\",\n  \"campaign_id\": 1457432766,\n  \"state\": \"stopped\",\n  \"stopped_at\": \"2025-07-07T12:45:00Z\"\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Get Campaign Report API",
+          "item": [
+            {
+              "name": "Get Campaign Report API",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-CleverTap-Account-Id",
+                    "value": "{{id}}"
+                  },
+                  {
+                    "key": "X-CleverTap-Passcode",
+                    "value": "{{passcode}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": 1457432766\n}"
+                },
+                "url": {
+                  "raw": "https://{{base_url}}/1/targets/result.json",
+                  "protocol": "https",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "1",
+                    "targets",
+                    "result.json"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Sample Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "Text",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\n  \"status\": \"success\",\n  \"result\": {\n    \"sent\": 82,\n    \"clicked\": 28\n  },\n  \"metadata\": {\n    \"campaign_id\": 1457432766,\n    \"campaign_name\": \"My Campaign\"\n  }\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Get Campaigns API",
+          "item": [
+            {
+              "name": "Get Campaigns API (Campaigns Created Via API Only)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-CleverTap-Account-Id",
+                    "value": "{{id}}"
+                  },
+                  {
+                    "key": "X-CleverTap-Passcode",
+                    "value": "{{passcode}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"from\": 20250101,\n  \"to\": 20251231\n}"
+                },
+                "url": {
+                  "raw": "https://{{base_url}}/1/targets/list.json",
+                  "protocol": "https",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "1",
+                    "targets",
+                    "list.json"
+                  ]
+                },
+                "description": "https://developer.clevertap.com/docs/get-campaigns-api#section-overview"
+              },
+              "response": [
+                {
+                  "name": "Sample Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "Text",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\n  \"status\": \"success\",\n  \"targets\": [\n    {\n      \"id\": 1457429935,\n      \"name\": \"My API Campaign\",\n      \"scheduled_on\": 201601011508,\n      \"status\": \"pending\"\n    }\n  ]\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Create Campaign API",
+          "item": [
+            {
+              "name": "Create Campaign API - Target Users by their Identities(WEB PUSH)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-CleverTap-Account-Id",
+                    "value": "{{id}}"
+                  },
+                  {
+                    "key": "X-CleverTap-Passcode",
+                    "value": "{{passcode}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "{{type}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"to\": {\n    \"FBID\": [\n      \"102029292929388\",\n      \"114342342453463\"\n    ],\n    \"GPID\": [\n      \"1928288389299292\"\n    ],\n    \"Email\": [\n      \"john@doe.com\",\n      \"jane@doe.com\"\n    ],\n    \"Identity\": [\n      \"JohnDoe\"\n    ],\n    \"objectId\": [\n      \"_asdnkansdjknaskdjnasjkndja\",\n      \"-adffajjdfoaiaefiohnefwprjf\"\n    ]\n  },\n  \"tag_group\": \"my tag group\",\n  \"respect_frequency_caps\": false,\n  \"content\": {\n    \"title\": \"Hi!\",\n    \"body\": \"How are you doing today?\",\n    \"platform_specific\": {\n      \"chrome\": {\n        \"image\": \"https://www.exampleImage.com\",\n        \"icon\": \"https://www.exampleIcon.com\",\n        \"deep_link\": \"http://www.example.com\",\n        \"ttl\": 10,\n        \"require_interaction\": true,\n        \"cta_title1\": \"title\",\n        \"cta_link1\": \"http://www.example2.com\",\n        \"cta_iconlink1\": \"https://www.exampleIcon2.com\"\n      }\n    }\n  }\n}"
+                },
+                "url": {
+                  "raw": "https://{{base_url}}/1/send/webpush.json",
+                  "protocol": "https",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "1",
+                    "send",
+                    "webpush.json"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Sample Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "Text",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\n  \"message\": \"Added to queue for processing\",\n  \"status\": \"success\"\n}"
+                }
+              ]
+            },
+            {
+              "name": "Create Campaign API - Target User Events & Properties",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-CleverTap-Account-Id",
+                    "value": "{{id}}"
+                  },
+                  {
+                    "key": "X-CleverTap-Passcode",
+                    "value": "{{passcode}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "{{type}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"My Sms API campaign\",\n  \"estimate_only\": true,\n  \"target_mode\": \"sms\",\n  \"where\": {\n    \"event_name\": \"Charged\",\n    \"from\": 20251001,\n    \"to\": 20251220,\n    \"common_profile_properties\": {\n      \"profile_fields\": [\n        {\n          \"name\": \"Customer Type\",\n          \"operator\": \"equals\",\n          \"value\": \"Platinum\"\n        }\n      ]\n    }\n  },\n  \"respect_frequency_caps\": false,\n  \"content\": {\n    \"body\": \"Sms body\"\n  },\n  \"when\": \"now\"\n}"
+                },
+                "url": {
+                  "raw": "https://{{base_url}}/1/targets/create.json",
+                  "protocol": "https",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "1",
+                    "targets",
+                    "create.json"
+                  ]
+                },
+                "description": "https://developer.clevertap.com/docs/create-campaign-api#section-create-campaign-api-target-user-events-properties"
+              },
+              "response": [
+                {
+                  "name": "Sample Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "Text",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\n  \"status\": \"success\",\n  \"id\": 1770876868,\n  \"estimates\": {\n    \"android\": 0,\n    \"ios\": 0\n  }\n}"
+                }
+              ]
+            },
+            {
+              "name": "Create Campaign API - Target Users by their Identities(EMAIL)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-CleverTap-Account-Id",
+                    "value": "{{id}}"
+                  },
+                  {
+                    "key": "X-CleverTap-Passcode",
+                    "value": "{{passcode}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "{{type}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"to\": {\n    \"FBID\": [\n      \"102029292929388\",\n      \"114342342453463\"\n    ],\n    \"GPID\": [\n      \"1928288389299292\"\n    ],\n    \"Email\": [\n      \"john@doe.com\",\n      \"jane@doe.com\"\n    ],\n    \"Identity\": [\n      \"JohnDoe\"\n    ],\n    \"objectId\": [\n      \"_asdnkansdjknaskdjnasjkndja\",\n      \"-adffajjdfoaiaefiohnefwprjf\"\n    ]\n  },\n  \"tag_group\": \"my tag group\",\n  \"respect_frequency_caps\": false,\n  \"content\": {\n    \"subject\": \"Welcome\",\n    \"body\": \"<div>Your HTML content for the email</div>\",\n    \"sender_name\": \"CleverTap\"\n  }\n}"
+                },
+                "url": {
+                  "raw": "https://{{base_url}}/1/send/email.json",
+                  "protocol": "https",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "1",
+                    "send",
+                    "email.json"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Sample Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "Text",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\n  \"message\": \"Added to queue for processing\",\n  \"status\": \"success\"\n}"
+                }
+              ]
+            },
+            {
+              "name": "Create Campaign API - Target Users by their Identities(SMS)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-CleverTap-Account-Id",
+                    "value": "{{id}}"
+                  },
+                  {
+                    "key": "X-CleverTap-Passcode",
+                    "value": "{{passcode}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "{{type}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"to\": {\n    \"FBID\": [\n      \"102029292929388\",\n      \"114342342453463\"\n    ],\n    \"GPID\": [\n      \"1928288389299292\"\n    ],\n    \"Email\": [\n      \"john@doe.com\",\n      \"jane@doe.com\"\n    ],\n    \"Identity\": [\n      \"JohnDoe\"\n    ],\n    \"objectId\": [\n      \"_asdnkansdjknaskdjnasjkndja\",\n      \"-adffajjdfoaiaefiohnefwprjf\"\n    ]\n  },\n  \"tag_group\": \"mytaggroup\",\n  \"respect_frequency_caps\": false,\n  \"content\": {\n    \"body\": \"Smsbody\"\n  }\n}"
+                },
+                "url": {
+                  "raw": "https://{{base_url}}/1/send/sms.json",
+                  "protocol": "https",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "1",
+                    "send",
+                    "sms.json"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Sample Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "Text",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\n  \"message\": \"Added to queue for processing\",\n  \"status\": \"success\"\n}"
+                }
+              ]
+            },
+            {
+              "name": "Create Campaign API - Target Users by their Identities(PUSH)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-CleverTap-Account-Id",
+                    "value": "{{id}}"
+                  },
+                  {
+                    "key": "X-CleverTap-Passcode",
+                    "value": "{{passcode}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "{{type}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"to\": {\n    \"FBID\": [\n      \"102029292929388\",\n      \"114342342453463\"\n    ],\n    \"GPID\": [\n      \"1928288389299292\"\n    ],\n    \"Email\": [\n      \"john@doe.com\",\n      \"jane@doe.com\"\n    ],\n    \"Identity\": [\n      \"JohnDoe\"\n    ],\n    \"objectId\": [\n      \"_asdnkansdjknaskdjnasjkndja\",\n      \"-adffajjdfoaiaefiohnefwprjf\"\n    ]\n  },\n  \"tag_group\": \"my tag group\",\n  \"respect_frequency_caps\": false,\n  \"content\": {\n    \"title\": \"Welcome\",\n    \"body\": \"Hello world!\",\n    \"platform_specific\": {\n      \"windows\": {\n        \"deep_link\": \"example.com\",\n        \"key\": \"value_windows\"\n      },\n      \"ios\": {\n        \"deep_link\": \"example.com\",\n        \"sound_file\": \"example.caf\",\n        \"category\": \"notification category\",\n        \"badge_count\": 1,\n        \"key\": \"value_ios\"\n      },\n      \"android\": {\n        \"background_image\": \"http://example.jpg\",\n        \"default_sound\": true,\n        \"deep_link\": \"example.com\",\n        \"large_icon\": \"http://example.png\",\n        \"key\": \"value_android\"\n      }\n    }\n  }\n}"
+                },
+                "url": {
+                  "raw": "https://{{base_url}}/1/send/push.json",
+                  "protocol": "https",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "1",
+                    "send",
+                    "push.json"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Sample Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "Text",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\n  \"status\": \"success\"\n}"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Profile API Endpoints",
+      "item": [
+        {
+          "name": "Get Profile Count API",
+          "item": [
+            {
+              "name": "Get Profile Count APi",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "var result = JSON.parse(responseBody);",
+                      "pm.globals.set(\"req_id\",result.req_id);"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-CleverTap-Account-Id",
+                    "value": "{{id}}"
+                  },
+                  {
+                    "key": "X-CleverTap-Passcode",
+                    "value": "{{passcode}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"event_name\": \"App Launched\",\n  \"from\": 20250101,\n  \"to\": 20251231\n}"
+                },
+                "url": {
+                  "raw": "https://{{base_url}}/1/counts/profiles.json",
+                  "protocol": "https",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "1",
+                    "counts",
+                    "profiles.json"
+                  ]
+                },
+                "description": "https://developer.clevertap.com/docs/get-profile-count-api"
+              },
+              "response": [
+                {
+                  "name": "Sample Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "Text",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\n  \"status\": \"success\",\n  \"count\": 7138\n}"
+                }
+              ]
+            },
+            {
+              "name": "Get Profile Count APi Partial Response",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "var result = JSON.parse(responseBody);",
+                      "pm.globals.set(\"req_id\",result.req_id);"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-CleverTap-Account-Id",
+                    "value": "{{id}}"
+                  },
+                  {
+                    "key": "X-CleverTap-Passcode",
+                    "value": "{{passcode}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "{{type}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"event_name\": \"Submit Button Clicked\",\n  \"event_properties\": [\n    {\n      \"name\": \"value\",\n      \"operator\": \"contains\",\n      \"value\": \"piz\"\n    }\n  ],\n  \"from\": 20250101,\n  \"to\": 20251231\n}"
+                },
+                "url": {
+                  "raw": "https://{{base_url}}/1/counts/profiles.json?req_id={{req_id}}",
+                  "protocol": "https",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "1",
+                    "counts",
+                    "profiles.json"
+                  ],
+                  "query": [
+                    {
+                      "key": "req_id",
+                      "value": "{{req_id}}"
+                    }
+                  ]
+                },
+                "description": "https://developer.clevertap.com/docs/get-profile-count-api"
+              },
+              "response": [
+                {
+                  "name": "Sample Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "Text",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\n  \"status\": \"success\",\n  \"count\": 7138\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Upload Device Tokens API",
+          "item": [
+            {
+              "name": "Upload Device Tokens API GCM/FCM/APNS/CHROME",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-CleverTap-Account-Id",
+                    "value": "{{id}}"
+                  },
+                  {
+                    "key": "X-CleverTap-Passcode",
+                    "value": "{{passcode}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"d\": [\n    {\n      \"type\": \"token\",\n      \"tokenData\": {\n        \"id\": \"frfsgvrwe:APfdsafsgdfsgghfgfgjkhfsfgdhjhbvcvnetry767456fxsasdf\",\n        \"type\": \"chrome\",\n        \"keys\": {\n          \"p256dh\": \"BLc4xRzKlKORKWlbdgFaBrrPK3ydWAHo4M0gs0i1oEKgPpWC5cW8OCzVrOQRv-1npXRWk8udnW3oYhIO4475rds=\",\n          \"auth\": \"5I2Bu2oKdyy9CwL8QVF0NQ==\"\n        }\n      },\n      \"objectId\": \"QBOpVJZmKilRAzfaiVS86Tovxm75lHxg\"\n    },\n    {\n      \"type\": \"token\",\n      \"tokenData\": {\n        \"id\": \"dYfuuBmHLGI:APA91bEfAq1b6NAmz0uhUbVxwSLqgKF25zDb7vhgajzS-bOAEUKekH_jbzO5oU1Qip-ZLvDpwKccxAxVNjC3rUUJnFTKDUiBcF9AtuG03_PRfjoUxLKHMR9qykK22SiubrLirNzQtNnO\",\n        \"type\": \"fcm\"\n      },\n      \"objectId\": \"__gc4grg4053N1eYkW6OBH71jhFev7b1iP\"\n    },\n    {\n      \"type\": \"token\",\n      \"tokenData\": {\n        \"id\": \"frfsgvrwe:APfdsafsgdfsgghfgfgjkhfsfgdhjhbvcvnetry767456fxsasdf\",\n        \"type\": \"gcm\"\n      },\n      \"objectId\": \"__QlXHaDHBZxZPLEMpPo6VvwdZ7FnbGvWA\"\n    },\n    {\n      \"type\": \"token\",\n      \"tokenData\": {\n        \"id\": \"frfsgvrwe:APfdsafsgdfsgghfgfgjkhfsfgdhjhbvcvnetry767456fxsasdf\",\n        \"type\": \"apns\"\n      },\n      \"objectId\": \"-HwB9gZWb3RcKhXCQ222FhAhkjeYQs0Hj\"\n    },\n    {\n      \"type\": \"token\",\n      \"tokenData\": {\n        \"id\": \"frfsgvrwe:APfdsafsgdfsgghfgfgjkhfsfgdhjhbvcvnetry767456fxsasdf\",\n        \"type\": \"wns\"\n      },\n      \"objectId\": \"~9XrS4Dy6GsnDbdX98Ijs63kEtJDQbhJA\"\n    },\n    {\n      \"type\": \"token\",\n      \"tokenData\": {\n        \"id\": \"frfsgvrwe:APfdsafsgdfsgghfgfgjkhfsfgdhjhbvcvnetry767456fxsasdf\",\n        \"type\": \"mpns\"\n      },\n      \"objectId\": \"~y9MqjkDGRfbzwwH8fZI6LIXgTKaEPxHr\"\n    }\n  ]\n}"
+                },
+                "url": {
+                  "raw": "https://{{base_url}}/1/upload",
+                  "protocol": "https",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "1",
+                    "upload"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Sample Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "Text",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\n  \"status\": \"success\",\n  \"processed\": 1,\n  \"unprocessed\": []\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Get User Profiles by Events",
+          "item": [
+            {
+              "name": "Get User Profiles by Events",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "var result = JSON.parse(responseBody);",
+                      "pm.globals.set(\"cursor\",result.cursor);"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-CleverTap-Account-Id",
+                    "value": "{{id}}"
+                  },
+                  {
+                    "key": "X-CleverTap-Passcode",
+                    "value": "{{passcode}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"event_name\": \"App Launched\",\n  \"from\": 20250101,\n  \"to\": 20251231\n}"
+                },
+                "url": {
+                  "raw": "https://{{base_url}}/1/profiles.json",
+                  "protocol": "https",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "1",
+                    "profiles.json"
+                  ]
+                },
+                "description": "https://developer.clevertap.com/docs/get-user-profiles-api#section-step-1-get-cursor-by-specifying-events-for-user-profiles"
+              },
+              "response": [
+                {
+                  "name": "Sample Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "Text",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\n  \"cursor\": \"AfljfgIJBgBnamF5Kz8NegcBAwxhbCe...\",\n  \"status\": \"success\"\n}"
+                }
+              ]
+            },
+            {
+              "name": "Get User Profiles Using Cursor",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "var result = JSON.parse(responseBody);",
+                      "pm.globals.set(\"cursor\",result.next_cursor);"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-CleverTap-Account-Id",
+                    "value": "{{id}}"
+                  },
+                  {
+                    "key": "X-CleverTap-Passcode",
+                    "value": "{{passcode}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "{{type}}"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{base_url}}/1/profiles.json?cursor={{cursor}}",
+                  "protocol": "https",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "1",
+                    "profiles.json"
+                  ],
+                  "query": [
+                    {
+                      "key": "cursor",
+                      "value": "{{cursor}}"
+                    }
+                  ]
+                },
+                "description": "Get User Profile API Step 2"
+              },
+              "response": [
+                {
+                  "name": "Sample Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "Text",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\n  \"status\": \"success\",\n  \"next_cursor\": \"ZiZjNwMEBQBkaWZz...\",\n  \"records\": [\n    {\n      \"identity\": \"5555555555\",\n      \"profileData\": {},\n      \"events\": {}\n    }\n  ]\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Delete User Profile API",
+          "item": [
+            {
+              "name": "Delete User Profile API Identity",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-CleverTap-Account-Id",
+                    "value": "{{id}}"
+                  },
+                  {
+                    "key": "X-CleverTap-Passcode",
+                    "value": "{{passcode}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"identity\": \"df2e224d90874887b4d61153ef3a2508\"\n}"
+                },
+                "url": {
+                  "raw": "https://{{base_url}}/1/delete/profiles.json",
+                  "protocol": "https",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "1",
+                    "delete",
+                    "profiles.json"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Sample Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "Text",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\n  \"status\": \"success\"\n}"
+                }
+              ]
+            },
+            {
+              "name": "Delete User Profile API Object ID",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-CleverTap-Account-Id",
+                    "value": "{{id}}"
+                  },
+                  {
+                    "key": "X-CleverTap-Passcode",
+                    "value": "{{passcode}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"guid\": \"df2e224d90874887b4d61153ef3a2508\"\n}"
+                },
+                "url": {
+                  "raw": "https://{{base_url}}/1/delete/profiles.json",
+                  "protocol": "https",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "1",
+                    "delete",
+                    "profiles.json"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Sample Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "Text",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\n  \"status\": \"success\"\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Get User Profiles by ID/Email/Clevertap ID",
+          "item": [
+            {
+              "name": "Download User Profiles by Email",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-CleverTap-Account-Id",
+                    "value": "{{id}}"
+                  },
+                  {
+                    "key": "X-CleverTap-Passcode",
+                    "value": "{{passcode}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "{{type}}"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{base_url}}/1/profile.json?email=jack@gmail.com",
+                  "protocol": "https",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "1",
+                    "profile.json"
+                  ],
+                  "query": [
+                    {
+                      "key": "email",
+                      "value": "jack@gmail.com"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Sample Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "Text",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\n  \"status\": \"success\",\n  \"record\": {\n    \"email\": \"user@example.com\",\n    \"profileData\": {},\n    \"events\": {}\n  }\n}"
+                }
+              ]
+            },
+            {
+              "name": "Download User Profiles by objectId",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-CleverTap-Account-Id",
+                    "value": "{{id}}"
+                  },
+                  {
+                    "key": "X-CleverTap-Passcode",
+                    "value": "{{passcode}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "{{type}}"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{base_url}}/1/profile.json?objectId=1a063854f83a4c6484285039ecff87cb",
+                  "protocol": "https",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "1",
+                    "profile.json"
+                  ],
+                  "query": [
+                    {
+                      "key": "objectId",
+                      "value": "1a063854f83a4c6484285039ecff87cb"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Sample Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "Text",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\n  \"status\": \"success\",\n  \"record\": {\n    \"email\": \"user@example.com\",\n    \"profileData\": {},\n    \"events\": {}\n  }\n}"
+                }
+              ]
+            },
+            {
+              "name": "Download User Profiles by Identity",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-CleverTap-Account-Id",
+                    "value": "{{id}}"
+                  },
+                  {
+                    "key": "X-CleverTap-Passcode",
+                    "value": "{{passcode}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "{{type}}"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{base_url}}/1/profile.json?identity=12345",
+                  "protocol": "https",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "1",
+                    "profile.json"
+                  ],
+                  "query": [
+                    {
+                      "key": "identity",
+                      "value": "12345"
+                    }
+                  ]
+                },
+                "description": "https://developer.clevertap.com/docs/upload-device-tokens-api"
+              },
+              "response": [
+                {
+                  "name": "Sample Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "Text",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\n  \"status\": \"success\",\n  \"record\": {\n    \"email\": \"user@example.com\",\n    \"profileData\": {},\n    \"events\": {}\n  }\n}"
+                }
+              ]
+            }
+          ],
+          "description": "You can download user profiles by requesting the specific user needed.\n\nYou can retrieve a user’s profile and all the events performed by a specific user. Supported identity values are email, a custom identity, or the CleverTap objectId.\n\nLink : https://developer.clevertap.com/docs/get-user-profiles-api#section-download-user-profiles-by-id",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Upload User Profiles API",
+          "item": [
+            {
+              "name": "Upload User Profiles API",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-CleverTap-Account-Id",
+                    "value": "{{id}}"
+                  },
+                  {
+                    "key": "X-CleverTap-Passcode",
+                    "value": "{{passcode}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"d\": [\n    {\n      \"objectId\": \"25b08803c1af4e00839f530264dac6f8\",\n      \"type\": \"profile\",\n      \"profileData\": {\n        \"Name\": \"Jack Test\"\n      }\n    }\n  ]\n}"
+                },
+                "url": {
+                  "raw": "https://{{base_url}}/1/upload",
+                  "protocol": "https",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "1",
+                    "upload"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Sample Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "Text",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\n  \"status\": \"success\",\n  \"processed\": 1,\n  \"unprocessed\": []\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Demerge User Profile API",
+          "item": [
+            {
+              "name": "Demerge User Profile API",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-CleverTap-Account-Id",
+                    "value": "{{id}}"
+                  },
+                  {
+                    "key": "X-CleverTap-Passcode",
+                    "value": "{{passcode}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"identities\": [\n    \"client-19827239\",\n    \"abc@ct.com\"\n  ]\n}"
+                },
+                "url": {
+                  "raw": "https://{{base_url}}/1/demerge/profiles.json",
+                  "protocol": "https",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "1",
+                    "demerge",
+                    "profiles.json"
+                  ]
+                },
+                "description": "Demerge user profiles by identities"
+              },
+              "response": [
+                {
+                  "name": "Sample Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "Text",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\n  \"status\": \"success\"\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Subscribe API",
+          "item": [
+            {
+              "name": "Subscribe/Unsubscribe API",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-CleverTap-Account-Id",
+                    "value": "{{id}}"
+                  },
+                  {
+                    "key": "X-CleverTap-Passcode",
+                    "value": "{{passcode}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"d\": [\n    {\n      \"type\": \"phone\",\n      \"value\": \"+919213231415\",\n      \"status\": \"Unsubscribe\"\n    },\n    {\n      \"type\": \"email\",\n      \"value\": \"[email protected]\",\n      \"status\": \"Resubscribe\"\n    }\n  ]\n}"
+                },
+                "url": {
+                  "raw": "https://{{base_url}}/1/subscribe",
+                  "protocol": "https",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "1",
+                    "subscribe"
+                  ]
+                },
+                "description": "Subscribe or unsubscribe users from communication channels"
+              },
+              "response": [
+                {
+                  "name": "Sample Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "Text",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\n  \"status\": \"success\",\n  \"processed\": 4,\n  \"unprocessed\": []\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Disassociate Phone Number API",
+          "item": [
+            {
+              "name": "Disassociate Phone Number API",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-CleverTap-Account-Id",
+                    "value": "{{id}}"
+                  },
+                  {
+                    "key": "X-CleverTap-Passcode",
+                    "value": "{{passcode}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"d\": [\n    {\n      \"type\": \"phone\",\n      \"value\": \"+919213231415\"\n    }\n  ]\n}"
+                },
+                "url": {
+                  "raw": "https://{{base_url}}/1/disassociate",
+                  "protocol": "https",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "1",
+                    "disassociate"
+                  ]
+                },
+                "description": "Disconnect phone numbers from user profiles"
+              },
+              "response": [
+                {
+                  "name": "Sample Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "Text",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\n  \"status\": \"success\",\n  \"processed\": 2,\n  \"unprocessed\": []\n}"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Event API Endpoints",
+      "item": [
+        {
+          "name": "Upload Events API",
+          "item": [
+            {
+              "name": "Upload Events API",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-CleverTap-Account-Id",
+                    "value": "{{id}}"
+                  },
+                  {
+                    "key": "X-CleverTap-Passcode",
+                    "value": "{{passcode}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"d\": [\n    {\n      \"identity\": \"34322423\",\n      \"type\": \"event\",\n      \"evtName\": \"Campaign Report Requested\",\n      \"evtData\": {\n        \"Product name\": \"Casio Chronograph Watch\",\n        \"Category\": \"Mens Watch\",\n        \"Price\": 59.99,\n        \"Currency\": \"USD\"\n      }\n    }\n  ]\n}"
+                },
+                "url": {
+                  "raw": "https://{{base_url}}/1/upload",
+                  "protocol": "https",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "1",
+                    "upload"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Sample Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "Text",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\n  \"status\": \"success\",\n  \"processed\": 1,\n  \"unprocessed\": []\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Get Events API",
+          "item": [
+            {
+              "name": "Get Cursor by Specifying Events Needed API",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "var result = JSON.parse(responseBody);",
+                      "pm.globals.set(\"cursor\",result.cursor);"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-CleverTap-Account-Id",
+                    "value": "{{id}}"
+                  },
+                  {
+                    "key": "X-CleverTap-Passcode",
+                    "value": "{{passcode}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"event_name\": \"App Launched\",\n  \"from\": 20250101,\n  \"to\": 20251231\n}"
+                },
+                "url": {
+                  "raw": "https://{{base_url}}/1/events.json",
+                  "protocol": "https",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "1",
+                    "events.json"
+                  ]
+                },
+                "description": "Get Events API Step 1"
+              },
+              "response": [
+                {
+                  "name": "Sample Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "Text",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\n  \"cursor\": \"AfljfgIJBgBnamF5Kz8NegcBAwxhbCe...\",\n  \"status\": \"success\"\n}"
+                }
+              ]
+            },
+            {
+              "name": "Get Events Using Cursor",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "var result = JSON.parse(responseBody);",
+                      "pm.globals.set(\"cursor\",result.next_cursor);"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-CleverTap-Account-Id",
+                    "value": "{{id}}"
+                  },
+                  {
+                    "key": "X-CleverTap-Passcode",
+                    "value": "{{passcode}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "{{type}}"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{base_url}}/1/events.json?cursor={{cursor}}",
+                  "protocol": "https",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "1",
+                    "events.json"
+                  ],
+                  "query": [
+                    {
+                      "key": "cursor",
+                      "value": "{{cursor}}"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Sample Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "Text",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\n  \"status\": \"success\",\n  \"next_cursor\": \"ZyZjfwYEAgdjYmZy...\",\n  \"records\": [\n    {\n      \"profile\": {},\n      \"events\": {},\n      \"ts\": 20151023140416\n    }\n  ]\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Get Event Count API",
+          "item": [
+            {
+              "name": "Get Event Count API Partial",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "var result = JSON.parse(responseBody);",
+                      "pm.globals.set(\"req_id\",result.req_id);"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-CleverTap-Account-Id",
+                    "value": "{{id}}"
+                  },
+                  {
+                    "key": "X-CleverTap-Passcode",
+                    "value": "{{passcode}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "https://{{base_url}}/1/counts/events.json?req_id={{req_id}}",
+                  "protocol": "https",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "1",
+                    "counts",
+                    "events.json"
+                  ],
+                  "query": [
+                    {
+                      "key": "req_id",
+                      "value": "{{req_id}}"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Sample Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "Text",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\n  \"status\": \"success\",\n  \"count\": 7138\n}"
+                }
+              ]
+            },
+            {
+              "name": "Get Event Count API",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "var result = JSON.parse(responseBody);",
+                      "pm.globals.set(\"req_id\",result.req_id);"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-CleverTap-Account-Id",
+                    "value": "{{id}}"
+                  },
+                  {
+                    "key": "X-CleverTap-Passcode",
+                    "value": "{{passcode}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"event_name\": \"App Launched\",\n  \"from\": 20250101,\n  \"to\": 20251231\n}"
+                },
+                "url": {
+                  "raw": "https://{{base_url}}/1/counts/events.json",
+                  "protocol": "https",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "1",
+                    "counts",
+                    "events.json"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Sample Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "Text",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\n  \"status\": \"success\",\n  \"count\": 7138\n}"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Catalog Upload Endpoints",
+      "item": [
+        {
+          "name": "Get Catalog Presigned URL",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-CleverTap-Account-Id",
+                "value": "{{id}}"
+              },
+              {
+                "key": "X-CleverTap-Passcode",
+                "value": "{{passcode}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://{{base_url}}/get_catalog_url",
+              "protocol": "https",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "get_catalog_url"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Sample Response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [],
+              "cookie": [],
+              "body": "{\n  \"presignedS3URL\": \"<PRE-SIGNED URL>\",\n  \"expiryEpoch\": {\n    \"$date\": \"2019-04-24T13:04:37.088Z\"\n  },\n  \"status\": \"success\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Upload Catalog File to Presigned URL",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/csv"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": ""
+              }
+            },
+            "url": {
+              "raw": "{{presignedS3URL}}",
+              "host": [
+                "{{presignedS3URL}}"
+              ]
+            },
+            "description": "Upload CSV file to the presigned URL received from Get Catalog URL endpoint"
+          },
+          "response": [
+            {
+              "name": "Sample Response",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [],
+              "cookie": [],
+              "body": "{\n  \"status\": \"success\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Complete Catalog Upload",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-CleverTap-Account-Id",
+                "value": "{{id}}"
+              },
+              {
+                "key": "X-CleverTap-Passcode",
+                "value": "{{passcode}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Product_Catalog\",\n  \"email\": \"user@example.com\",\n  \"creator\": \"API User\",\n  \"url\": \"{{presignedS3URL}}\",\n  \"replace\": false\n}"
+            },
+            "url": {
+              "raw": "https://{{base_url}}/upload_catalog_completed",
+              "protocol": "https",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "upload_catalog_completed"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Sample Response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [],
+              "cookie": [],
+              "body": "{\n  \"status\": \"success\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Multipart Upload Catalog URL",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-CleverTap-Account-Id",
+                "value": "{{id}}"
+              },
+              {
+                "key": "X-CleverTap-Passcode",
+                "value": "{{passcode}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://{{base_url}}/get_multipart_upload_catalog_url?totalParts=5",
+              "protocol": "https",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "get_multipart_upload_catalog_url"
+              ],
+              "query": [
+                {
+                  "key": "totalParts",
+                  "value": "5"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Sample Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [],
+              "cookie": [],
+              "body": "{\n  \"status\": \"success\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Upload Catalog Part (Multipart)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/csv"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": ""
+              }
+            },
+            "url": {
+              "raw": "{{presignedS3URLPart}}",
+              "host": [
+                "{{presignedS3URLPart}}"
+              ]
+            },
+            "description": "Upload catalog part to presigned URL from Get Multipart Upload URL"
+          },
+          "response": [
+            {
+              "name": "Sample Response",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [],
+              "cookie": [],
+              "body": "{\n  \"status\": \"success\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Custom List API Endpoints",
+      "item": [
+        {
+          "name": "Get Custom List Presigned URL",
+          "item": [
+            {
+              "name": "Get Custom List Presigned URL",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-CleverTap-Account-Id",
+                    "value": "{{id}}"
+                  },
+                  {
+                    "key": "X-CleverTap-Passcode",
+                    "value": "{{passcode}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{base_url}}/get_custom_list_segment_url",
+                  "protocol": "https",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "get_custom_list_segment_url"
+                  ]
+                },
+                "description": "Request presigned URL for custom list upload"
+              },
+              "response": [
+                {
+                  "name": "Sample Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "Text",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\n  \"presignedS3URL\": \"<PRE-SIGNED URL>\",\n  \"expiry\": \"7 May, 01:29 PM\",\n  \"status\": \"success\"\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Upload Custom List File",
+          "item": [
+            {
+              "name": "Upload Custom List to Presigned URL",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "text/csv"
+                  }
+                ],
+                "body": {
+                  "mode": "file",
+                  "file": {
+                    "src": ""
+                  }
+                },
+                "url": {
+                  "raw": "{{presignedS3URL}}",
+                  "host": [
+                    "{{presignedS3URL}}"
+                  ]
+                },
+                "description": "Upload CSV file to presigned URL"
+              },
+              "response": [
+                {
+                  "name": "Sample Response",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "Text",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\n  \"status\": \"success\"\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Complete Custom List Upload",
+          "item": [
+            {
+              "name": "Complete Custom List Upload",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-CleverTap-Account-Id",
+                    "value": "{{id}}"
+                  },
+                  {
+                    "key": "X-CleverTap-Passcode",
+                    "value": "{{passcode}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{base_url}}/upload_custom_list_segment_completed",
+                  "protocol": "https",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "upload_custom_list_segment_completed"
+                  ]
+                },
+                "description": "Notify CleverTap that custom list upload is complete"
+              },
+              "response": [
+                {
+                  "name": "Sample Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "Text",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\n  \"Segment ID\": 1598345958,\n  \"status\": \"success\"\n}"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Settings API Endpoints",
+      "item": [
+        {
+          "name": "Get Subscription Groups",
+          "item": [
+            {
+              "name": "Get Subscription Groups",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-CleverTap-Account-Id",
+                    "value": "{{id}}"
+                  },
+                  {
+                    "key": "X-CleverTap-Passcode",
+                    "value": "{{passcode}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{base_url}}/category-groups",
+                  "protocol": "https",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "category-groups"
+                  ]
+                },
+                "description": "Get list of all subscription groups created on dashboard"
+              },
+              "response": [
+                {
+                  "name": "Sample Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "Text",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\n  \"list\": [\n    {\n      \"name\": \"Newsletter\",\n      \"key\": 1,\n      \"description\": \"Newsletter\",\n      \"channels\": [\n        \"Email\"\n      ],\n      \"updated_on\": 1597812749,\n      \"created_on\": 1597812749\n    }\n  ],\n  \"status\": \"success\"\n}"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Remote Config API Endpoints",
+      "item": [
+        {
+          "name": "Create Variables API",
+          "item": [
+            {
+              "name": "Create Variables API",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-CleverTap-Account-Id",
+                    "value": "{{id}}"
+                  },
+                  {
+                    "key": "X-CleverTap-Passcode",
+                    "value": "{{passcode}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"variableDefinitions\": {\n    \"variableName\": {\n      \"type\": \"string\",\n      \"description\": \"Variable description\",\n      \"defaultValue\": \"default_value\"\n    }\n  }\n}"
+                },
+                "url": {
+                  "raw": "https://{{base_url}}/1/createVars",
+                  "protocol": "https",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "1",
+                    "createVars"
+                  ]
+                },
+                "description": "Create new remote config variables"
+              },
+              "response": [
+                {
+                  "name": "Sample Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "Text",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\n  \"status\": \"success\",\n  \"warning\": \"\"\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Delete Variables API",
+          "item": [
+            {
+              "name": "Delete Variables API",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-CleverTap-Account-Id",
+                    "value": "{{id}}"
+                  },
+                  {
+                    "key": "X-CleverTap-Passcode",
+                    "value": "{{passcode}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"variableNames\": [\n    \"var1\",\n    \"folder1.var2\"\n  ],\n  \"deleteAllVars\": false\n}"
+                },
+                "url": {
+                  "raw": "https://{{base_url}}/1/deleteVars",
+                  "protocol": "https",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "1",
+                    "deleteVars"
+                  ]
+                },
+                "description": "Delete remote config variables"
+              },
+              "response": [
+                {
+                  "name": "Sample Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "Text",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\n  \"status\": \"success\",\n  \"deletedVariables\": [\n    \"var1\"\n  ],\n  \"problematicVariables\": []\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Get Variables API",
+          "item": [
+            {
+              "name": "Get Variables API",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-CleverTap-Account-Id",
+                    "value": "{{id}}"
+                  },
+                  {
+                    "key": "X-CleverTap-Passcode",
+                    "value": "{{passcode}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"identity\": \"user@clevertap.com\",\n  \"includeDefaults\": false\n}"
+                },
+                "url": {
+                  "raw": "https://{{base_url}}/1/getVars",
+                  "protocol": "https",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "1",
+                    "getVars"
+                  ]
+                },
+                "description": "Get variable values for a user"
+              },
+              "response": [
+                {
+                  "name": "Sample Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "Text",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\n  \"variables\": {\n    \"variableA\": 10.0,\n    \"variableB\": 9.9\n  },\n  \"status\": \"success\"\n}"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Promo API Endpoints",
+      "item": [
+        {
+          "name": "Promo - Wallet API Endpoints",
+          "item": [
+            {
+              "name": "Get Wallet Details API",
+              "item": [
+                {
+                  "name": "Get Wallet Details API",
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-CleverTap-Account-Id",
+                        "value": "{{id}}"
+                      },
+                      {
+                        "key": "X-CleverTap-Passcode",
+                        "value": "{{passcode}}"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "https://{{base_url}}/1/promo/wallets?identity=krishna123",
+                      "protocol": "https",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "1",
+                        "promo",
+                        "wallets"
+                      ],
+                      "query": [
+                        {
+                          "key": "identity",
+                          "value": "krishna123"
+                        }
+                      ]
+                    },
+                    "description": "Get wallet balance and details for a user"
+                  },
+                  "response": [
+                    {
+                      "name": "Sample Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{base_url}}/",
+                          "host": [
+                            "{{base_url}}"
+                          ],
+                          "path": [
+                            ""
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "Text",
+                      "header": [],
+                      "cookie": [],
+                      "body": "{\n    \"status\": \"success\",\n    \"records\": [\n        {\n            \"walletId\": 1000,\n            \"totalRedeemedPoints\": 0,\n            \"totalCreditedPoints\": 0,\n            \"activePoints\": 0,\n            \"walletName\": \"CleverTap Wallet\",\n            \"totalPromisedPoints\": 0,\n            \"loyaltyPointsName\": \"Points\",\n            \"expiredPoints\": 0\n        },\n        {\n            \"walletId\": 1003,\n            \"totalRedeemedPoints\": 0,\n            \"totalCreditedPoints\": 0,\n            \"activePoints\": 0,\n            \"walletName\": \"Promo Wallet\",\n            \"totalPromisedPoints\": 0,\n            \"loyaltyPointsName\": \"Promo Coins\",\n            \"expiredPoints\": 0\n        },\n        {\n            \"walletId\": 1020,\n            \"totalRedeemedPoints\": 129,\n            \"totalCreditedPoints\": 388.579,\n            \"activePoints\": 0,\n            \"walletName\": \"test\",\n            \"totalPromisedPoints\": 129.526,\n            \"loyaltyPointsName\": \"Offer\",\n            \"expiredPoints\": 259.053\n        }\n    ]\n}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Get Wallet Transactions API",
+              "item": [
+                {
+                  "name": "Get Wallet Transactions API",
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-CleverTap-Account-Id",
+                        "value": "{{id}}"
+                      },
+                      {
+                        "key": "X-CleverTap-Passcode",
+                        "value": "{{passcode}}"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "https://{{base_url}}/1/promo/transactions?identity=krishna123&walletId=2163",
+                      "protocol": "https",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "1",
+                        "promo",
+                        "transactions"
+                      ],
+                      "query": [
+                        {
+                          "key": "identity",
+                          "value": "krishna123"
+                        },
+                        {
+                          "key": "walletId",
+                          "value": "2163"
+                        }
+                      ]
+                    },
+                    "description": "Get transaction history for a user's wallet"
+                  },
+                  "response": [
+                    {
+                      "name": "Sample Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{base_url}}/",
+                          "host": [
+                            "{{base_url}}"
+                          ],
+                          "path": [
+                            ""
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "Text",
+                      "header": [],
+                      "cookie": [],
+                      "body": "{\n   \"status\": \"success\",\n   \"record\": {\n       \"promisedPoints\": {\n           \"totalPromisedPoints\": 0,\n           \"promisedPointsList\": []\n       },\n       \"pointsExpiring\": {\n           \"earliestExpiryTimestamp\": 1754471850,\n           \"pointsExpiringSoon\": 77,\n           \"pointsExpiringList\": [\n               {\n                   \"expiryTimestamp\": 1754471850,\n                   \"points\": 77\n               },\n               {\n                   \"expiryTimestamp\": 1754472109,\n                   \"points\": 7.7\n               }\n           ]\n       },\n       \"allTransactions\": [\n           {\n               \"txnTimestamp\": 1754386499,\n               \"saleAmount\": 0,\n               \"metadata\": null,\n               \"orderId\": \"\",\n               \"saleChannel\": \"\",\n               \"campaignId\": 1754386284,\n               \"locationId\": \"\",\n               \"txnSource\": \"SYSTEM\",\n               \"description\": \"Points expired automatically by system\",\n               \"type\": \"EXPIRED\",\n               \"tnxId\": \"wl_wB3FNMnD0ea0QD0xwfg1W\",\n               \"points\": 259.9\n           },\n           {\n               \"txnTimestamp\": 1754384850,\n               \"saleAmount\": 1000,\n               \"metadata\": {\n                   \"Key1\": \"Test1\",\n                   \"key2\": \"Test2\"\n               },\n               \"orderId\": \"order123\",\n               \"saleChannel\": \"UPI\",\n               \"campaignId\": 0,\n               \"locationId\": \"BAN123\",\n               \"txnSource\": \"API\",\n               \"description\": \"Reward points for purchase\",\n               \"type\": \"CREDIT\",\n               \"tnxId\": \"wl_71ezcyzGWLc0S19qeCUo1\",\n               \"points\": 77\n           }\n       ]\n   }\n}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Debit Wallet API",
+              "item": [
+                {
+                  "name": "Debit Wallet API",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-CleverTap-Account-Id",
+                        "value": "{{id}}"
+                      },
+                      {
+                        "key": "X-CleverTap-Passcode",
+                        "value": "{{passcode}}"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"description\": \"Points redemption\",\n  \"points\": 100,\n  \"transactionType\": \"DEBIT\",\n  \"orderId\": \"order123\",\n  \"saleChannel\": \"online\",\n  \"saleAmount\": 150.50,\n  \"locationId\": \"loc123\",\n  \"metadata\": {\n    \"key\": \"value\"\n  }\n}"
+                    },
+                    "url": {
+                      "raw": "https://{{base_url}}/1/promo/creditDebit?identity=krishna123&walletId=2163",
+                      "protocol": "https",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "1",
+                        "promo",
+                        "creditDebit"
+                      ],
+                      "query": [
+                        {
+                          "key": "identity",
+                          "value": "krishna123"
+                        },
+                        {
+                          "key": "walletId",
+                          "value": "2163"
+                        }
+                      ]
+                    },
+                    "description": "Debit points from user's wallet"
+                  },
+                  "response": [
+                    {
+                      "name": "Sample Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                          "raw": "{{base_url}}/",
+                          "host": [
+                            "{{base_url}}"
+                          ],
+                          "path": [
+                            ""
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "Text",
+                      "header": [],
+                      "cookie": [],
+                      "body": "{\n    \"status\": \"success\",\n    \"record\": {\n        \"saleAmount\": 1000,\n        \"walletId\": 1963,\n        \"metadata\": {\n            \"RuleId\": \"123\",\n            \"brand\": \"amazon\",\n            \"vouchercode\": \"oomco123\"\n        },\n        \"activePoints\": 120.46,\n        \"orderId\": \"order123\",\n        \"saleChannel\": \"POS\",\n        \"locationId\": \"BAN123\",\n        \"description\": \"Reward points for purchase\",\n        \"tnxId\": \"wl_EjKlltmdYqrJYDiRaRcGv\",\n        \"points\": 100\n    }\n}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Credit Wallet API",
+              "item": [
+                {
+                  "name": "Credit Wallet API",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-CleverTap-Account-Id",
+                        "value": "{{id}}"
+                      },
+                      {
+                        "key": "X-CleverTap-Passcode",
+                        "value": "{{passcode}}"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n   \"description\": \"Reward points\",\n   \"points\": 100,\n   \"transactionType\": \"CREDIT\",\n   \"bucketType\": \"ACTIVE\",\n   \"orderId\": \"order123\",\n   \"saleChannel\": \"online\",\n   \"saleAmount\": 150.5,\n   \"locationId\": \"loc123\",\n   \"metadata\": {\n      \"key\": \"value\"\n   },\n   \"expiryDuration\": \"1d 10m\",\n   \"activationDuration\": \"3d\"\n}"
+                    },
+                    "url": {
+                      "raw": "https://{{base_url}}/1/promo/creditDebit?identity=krishna123&walletId=2163",
+                      "protocol": "https",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "1",
+                        "promo",
+                        "creditDebit"
+                      ],
+                      "query": [
+                        {
+                          "key": "identity",
+                          "value": "krishna123"
+                        },
+                        {
+                          "key": "walletId",
+                          "value": "2163"
+                        }
+                      ]
+                    },
+                    "description": "Credit points to user's wallet"
+                  },
+                  "response": [
+                    {
+                      "name": "Sample Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                          "raw": "{{base_url}}/",
+                          "host": [
+                            "{{base_url}}"
+                          ],
+                          "path": [
+                            ""
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "Text",
+                      "header": [],
+                      "cookie": [],
+                      "body": "{\n    \"status\": \"success\",\n    \"record\": {\n        \"saleAmount\": 1000,\n        \"walletId\": 1963,\n        \"metadata\": {\n            \"RuleId\": \"123\",\n            \"brand\": \"amazon\",\n            \"vouchercode\": \"oomco123\"\n        },\n        \"activePoints\": 120.46,\n        \"orderId\": \"order123\",\n        \"saleChannel\": \"POS\",\n        \"locationId\": \"BAN123\",\n        \"description\": \"Reward points for purchase\",\n        \"tnxId\": \"wl_EjKlltmdYqrJYDiRaRcGv\",\n        \"points\": 100\n    }\n}"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Promo - Coupon API Endpoints",
+          "item": [
+            {
+              "name": "Fetch Coupon API",
+              "item": [
+                {
+                  "name": "Fetch Coupon API",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-CleverTap-Account-Id",
+                        "value": "{{id}}"
+                      },
+                      {
+                        "key": "X-CleverTap-Passcode",
+                        "value": "{{passcode}}"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"couponCode\": \"CODE_1749462472681\",\n    \"order\": {\n        \"orderId\": \"order12345\",\n        \"saleMrpTotal\": 399,\n        \"saleAmount\": 101,\n        \"saleChannel\": \"online\",\n        \"location\": \"BLR\",\n        \"locationId\": \"IND\",\n        \"orderStatus\": \"pending\",\n        \"items\": [\n            {\n                \"productId\": \"123456\",\n                \"sku\": \"124\",\n                \"itemName\": \"i1\",\n                \"category\": \"shirts\",\n                \"subCategory\": \"\",\n                \"brand\": \"levis\",\n                \"unitPrice\": 300,\n                \"mrp\": 300,\n                \"quantity\": 3,\n                \"metadata\": {\n                    \"color\": \"blue\"\n                }\n            },\n            {\n                \"productId\": \"123456\",\n                \"sku\": \"124\",\n                \"itemName\": \"i1\",\n                \"category\": \"electronics\",\n                \"subCategory\": \"\",\n                \"brand\": \"Zee5\",\n                \"unitPrice\": 100,\n                \"mrp\": 100,\n                \"quantity\": 1,\n                \"metadata\": {\n                    \"color\": \"blue\"\n                }\n            }\n        ],\n        \"metadata\": {\n            \"customerType\": \"guests\"\n        }\n    }\n}"
+                    },
+                    "url": {
+                      "raw": "https://{{base_url}}/1/promo/coupons?identity=BDF0V2",
+                      "protocol": "https",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "1",
+                        "promo",
+                        "coupons"
+                      ],
+                      "query": [
+                        {
+                          "key": "identity",
+                          "value": "BDF0V2"
+                        }
+                      ]
+                    },
+                    "description": "Fetch available coupons for a user"
+                  },
+                  "response": [
+                    {
+                      "name": "Sample Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                          "raw": "{{base_url}}/",
+                          "host": [
+                            "{{base_url}}"
+                          ],
+                          "path": [
+                            ""
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "Text",
+                      "header": [],
+                      "cookie": [],
+                      "body": "{\n    \"status\": \"success\",\n    \"records\": [\n        {\n            \"couponTimeframe\": [\n                {\n                    \"timeSlot\": {\n                        \"startTime\": \"00:00AM\",\n                        \"endTime\": \"11:59PM\"\n                    },\n                    \"validationDay\": \"All\"\n                }\n            ],\n            \"couponName\": \"\",\n            \"couponExpiry\": 32494151843,\n            \"couponCodeId\": 2255,\n            \"totalRedemptionUnlimited\": true,\n            \"isApplicable\": true,\n            \"description\": \"\",\n            \"message\": \"\",\n            \"couponExpiryNever\": true,\n            \"termsAndConditions\": [],\n            \"discountEffect\": {\n                \"discountRate\": 99,\n                \"rewardType\": \"cashback\",\n                \"discountType\": \"entireOrder\",\n                \"discountAppliedOn\": \"saleAmount\",\n                \"discountValue\": \"absolute\"\n            },\n            \"totalRedemptionLeft\": 0,\n            \"couponSavings\": {\n                \"customPropertyDiscount\": null,\n                \"orderDiscount\": 0,\n                \"shippingDiscount\": 0,\n                \"orderCashbackPoints\": 99,\n                \"order\": {\n                    \"saleAmount\": 101,\n                    \"metadata\": {\n                        \"customerType\": \"guests\"\n                    },\n                    \"saleMrpTotal\": 399,\n                    \"orderId\": \"order12345\",\n                    \"orderStatus\": \"pending\",\n                    \"itemsTotalQuantity\": 0,\n                    \"itemsMrpTotal\": 1000,\n                    \"saleChannel\": \"online\",\n                    \"orderShipping\": 0,\n                    \"locationId\": \"IND\",\n                    \"location\": \"BLR\",\n                    \"items\": [\n                        {\n                            \"unitPrice\": 300,\n                            \"subCategory\": \"\",\n                            \"metadata\": null,\n                            \"quantity\": 3,\n                            \"productId\": \"123456\",\n                            \"itemDiscount\": 0,\n                            \"mrp\": 300,\n                            \"itemCashbackPoints\": 89.1,\n                            \"grossAmount\": 900,\n                            \"isItemValidForDiscount\": true,\n                            \"itemName\": \"i1\",\n                            \"grossMrp\": 900,\n                            \"sku\": \"124\",\n                            \"category\": \"shirts\",\n                            \"itemNetAmount\": 810.9,\n                            \"brand\": \"levis\"\n                        },\n                        {\n                            \"unitPrice\": 100,\n                            \"subCategory\": \"\",\n                            \"metadata\": null,\n                            \"quantity\": 1,\n                            \"productId\": \"123456\",\n                            \"itemDiscount\": 0,\n                            \"mrp\": 100,\n                            \"itemCashbackPoints\": 9.9,\n                            \"grossAmount\": 100,\n                            \"isItemValidForDiscount\": true,\n                            \"itemName\": \"i1\",\n                            \"grossMrp\": 100,\n                            \"sku\": \"124\",\n                            \"category\": \"electronics\",\n                            \"itemNetAmount\": 90.1,\n                            \"brand\": \"Zee5\"\n                        }\n                    ],\n                    \"orderNetAmount\": 2,\n                    \"itemsSaleAmount\": 1000\n                }\n            },\n            \"bestCoupon\": \"Yes\",\n            \"identity\": \"j6158301\",\n            \"requestId\": \"\",\n            \"redemptionActivationDate\": 1756405800,\n            \"userRedemptionUnlimited\": false,\n            \"redemptionStatus\": true,\n            \"couponCode\": \"SALE100\",\n            \"userRedemptionLeft\": 1\n        },\n        {\n            \"couponTimeframe\": [\n                {\n                    \"timeSlot\": {\n                        \"startTime\": \"00:00AM\",\n                        \"endTime\": \"11:59PM\"\n                    },\n                    \"validationDay\": \"All\"\n                }\n            ],\n            \"couponName\": \"\",\n            \"couponExpiry\": 1756489069,\n            \"couponCodeId\": 2167,\n            \"totalRedemptionUnlimited\": true,\n            \"isApplicable\": true,\n            \"description\": \"Offer applicable on shirts category\",\n            \"message\": \"\",\n            \"couponExpiryNever\": false,\n            \"termsAndConditions\": [\n                \"Valid till month end\"\n            ],\n            \"discountEffect\": {\n                \"discountRate\": 10,\n                \"rewardType\": \"discount\",\n                \"discountType\": \"specificProducts\",\n                \"discountAppliedOn\": \"grossAmount\",\n                \"discountValue\": \"percentage\"\n            },\n            \"totalRedemptionLeft\": 0,\n            \"couponSavings\": {\n                \"customPropertyDiscount\": null,\n                \"orderDiscount\": 90,\n                \"shippingDiscount\": 0,\n                \"orderCashbackPoints\": 0,\n                \"order\": {\n                    \"saleAmount\": 101,\n                    \"metadata\": {\n                        \"customerType\": \"guests\"\n                    },\n                    \"saleMrpTotal\": 399,\n                    \"orderId\": \"order12345\",\n                    \"orderStatus\": \"pending\",\n                    \"itemsTotalQuantity\": 3,\n                    \"itemsMrpTotal\": 900,\n                    \"saleChannel\": \"online\",\n                    \"orderShipping\": 0,\n                    \"locationId\": \"IND\",\n                    \"location\": \"BLR\",\n                    \"items\": [\n                        {\n                            \"unitPrice\": 300,\n                            \"subCategory\": \"\",\n                            \"metadata\": null,\n                            \"quantity\": 3,\n                            \"productId\": \"123456\",\n                            \"itemDiscount\": 0,\n                            \"mrp\": 300,\n                            \"itemCashbackPoints\": 89.1,\n                            \"grossAmount\": 900,\n                            \"isItemValidForDiscount\": true,\n                            \"itemName\": \"i1\",\n                            \"grossMrp\": 900,\n                            \"sku\": \"124\",\n                            \"category\": \"shirts\",\n                            \"itemNetAmount\": 810.9,\n                            \"brand\": \"levis\"\n                        },\n                        {\n                            \"unitPrice\": 100,\n                            \"subCategory\": \"\",\n                            \"metadata\": null,\n                            \"quantity\": 1,\n                            \"productId\": \"123456\",\n                            \"itemDiscount\": 0,\n                            \"mrp\": 100,\n                            \"itemCashbackPoints\": 9.9,\n                            \"grossAmount\": 100,\n                            \"isItemValidForDiscount\": true,\n                            \"itemName\": \"i1\",\n                            \"grossMrp\": 100,\n                            \"sku\": \"124\",\n                            \"category\": \"electronics\",\n                            \"itemNetAmount\": 90.1,\n                            \"brand\": \"Zee5\"\n                        }\n                    ],\n                    \"orderNetAmount\": 910,\n                    \"itemsSaleAmount\": 900\n                }\n            },\n            \"bestCoupon\": \"No\",\n            \"identity\": \"j6158301\",\n            \"requestId\": \"\",\n            \"redemptionActivationDate\": 1755877500,\n            \"userRedemptionUnlimited\": false,\n            \"redemptionStatus\": true,\n            \"couponCode\": \"SHIRTS10\",\n            \"userRedemptionLeft\": 1\n        }\n    ]\n}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Validate Coupon API",
+              "item": [
+                {
+                  "name": "Validate Coupon API",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-CleverTap-Account-Id",
+                        "value": "{{id}}"
+                      },
+                      {
+                        "key": "X-CleverTap-Passcode",
+                        "value": "{{passcode}}"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"couponCode\": \"FLAT500\",\n    \"order\": {\n        \"orderId\": \"order12345\",\n        \"saleMrpTotal\": 399,\n        \"saleAmount\": 101,\n        \"saleChannel\": \"online\",\n        \"location\": \"BLR\",\n        \"locationId\": \"IND\",\n        \"orderStatus\": \"pending\",\n        \"items\": [\n            {\n                \"productId\": \"123456\",\n                \"sku\": \"124\",\n                \"itemName\": \"i1\",\n                \"category\": \"electronics\",\n                \"subCategory\": \"\",\n                \"brand\": \"Zee5\",\n                \"unitPrice\": 300,\n                \"mrp\": 300,\n                \"quantity\": 3,\n                \"metadata\": {\n                    \"color\": \"blue\",\n                    \"newkey\": \"k1\"\n                }\n            },\n            {\n                \"productId\": \"123456\",\n                \"sku\": \"124\",\n                \"itemName\": \"i1\",\n                \"category\": \"electronics\",\n                \"subCategory\": \"\",\n                \"brand\": \"Zee5\",\n                \"unitPrice\": 100,\n                \"mrp\": 100,\n                \"quantity\": 1,\n                \"metadata\": {\n                    \"color\": \"blue\",\n                    \"newkey\": \"k1\"\n                }\n            }\n        ],\n        \"metadata\": {\n            \"customerType\": \"guests\"\n        }\n    }\n}"
+                    },
+                    "url": {
+                      "raw": "https://{{base_url}}/1/promo/coupons/validate?identity=user123",
+                      "protocol": "https",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "1",
+                        "promo",
+                        "coupons",
+                        "validate"
+                      ],
+                      "query": [
+                        {
+                          "key": "identity",
+                          "value": "user123"
+                        }
+                      ]
+                    },
+                    "description": "Validate if coupon is applicable"
+                  },
+                  "response": [
+                    {
+                      "name": "Sample Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                          "raw": "{{base_url}}/",
+                          "host": [
+                            "{{base_url}}"
+                          ],
+                          "path": [
+                            ""
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "Text",
+                      "header": [],
+                      "cookie": [],
+                      "body": "{\n    \"status\": \"success\",\n    \"records\": [\n        {\n            \"couponTimeframe\": [\n                {\n                    \"timeSlot\": {\n                        \"startTime\": \"00:00AM\",\n                        \"endTime\": \"11:59PM\"\n                    },\n                    \"validationDay\": \"All\"\n                }\n            ],\n            \"couponName\": \"FLAT500\",\n            \"couponExpiry\": 32494151843,\n            \"couponCodeId\": 1003,\n            \"totalRedemptionUnlimited\": true,\n            \"isApplicable\": true,\n            \"description\": \"This offer is applicable on order above $100\",\n            \"message\": \"\",\n            \"couponExpiryNever\": true,\n            \"termsAndConditions\": [\n                \"Applicable on order above $100\",\n                \"Valid till may end\"\n            ],\n            \"discountEffect\": {\n                \"discountRate\": 100,\n                \"rewardType\": \"discount\",\n                \"discountType\": \"entireOrder\",\n                \"discountAppliedOn\": \"saleAmount\",\n                \"discountValue\": \"absolute\"\n            },\n            \"totalRedemptionLeft\": 0,\n            \"couponSavings\": {\n                \"customPropertyDiscount\": null,\n                \"orderDiscount\": 100,\n                \"shippingDiscount\": 0,\n                \"orderCashbackPoints\": 0,\n                \"order\": {\n                    \"saleAmount\": 101,\n                    \"metadata\": {\n                        \"customerType\": \"guests\"\n                    },\n                    \"saleMrpTotal\": 399,\n                    \"orderId\": \"order12345\",\n                    \"orderStatus\": \"pending\",\n                    \"itemsTotalQuantity\": 0,\n                    \"itemsMrpTotal\": 1000,\n                    \"saleChannel\": \"online\",\n                    \"orderShipping\": 0,\n                    \"locationId\": \"IND\",\n                    \"location\": \"BLR\",\n                    \"items\": [\n                        {\n                            \"unitPrice\": 300,\n                            \"subCategory\": \"\",\n                            \"metadata\": null,\n                            \"quantity\": 3,\n                            \"productId\": \"123456\",\n                            \"itemDiscount\": 90,\n                            \"mrp\": 300,\n                            \"itemCashbackPoints\": 0,\n                            \"grossAmount\": 900,\n                            \"isItemValidForDiscount\": true,\n                            \"itemName\": \"i1\",\n                            \"grossMrp\": 900,\n                            \"sku\": \"124\",\n                            \"category\": \"electronics\",\n                            \"itemNetAmount\": 810,\n                            \"brand\": \"Zee5\"\n                        },\n                        {\n                            \"unitPrice\": 100,\n                            \"subCategory\": \"\",\n                            \"metadata\": null,\n                            \"quantity\": 1,\n                            \"productId\": \"123456\",\n                            \"itemDiscount\": 10,\n                            \"mrp\": 100,\n                            \"itemCashbackPoints\": 0,\n                            \"grossAmount\": 100,\n                            \"isItemValidForDiscount\": true,\n                            \"itemName\": \"i1\",\n                            \"grossMrp\": 100,\n                            \"sku\": \"124\",\n                            \"category\": \"electronics\",\n                            \"itemNetAmount\": 90,\n                            \"brand\": \"Zee5\"\n                        }\n                    ],\n                    \"orderNetAmount\": 1,\n                    \"itemsSaleAmount\": 1000\n                }\n            },\n            \"bestCoupon\": \"\",\n            \"identity\": \"j541399\",\n            \"requestId\": \"\",\n            \"redemptionActivationDate\": 1755446400,\n            \"userRedemptionUnlimited\": false,\n            \"redemptionStatus\": true,\n            \"couponCode\": \"FLAT500\",\n            \"userRedemptionLeft\": 1\n        }\n    ]\n}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Redeem Coupon API",
+              "item": [
+                {
+                  "name": "Redeem Coupon API",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-CleverTap-Account-Id",
+                        "value": "{{id}}"
+                      },
+                      {
+                        "key": "X-CleverTap-Passcode",
+                        "value": "{{passcode}}"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"couponCode\": \"SALE100\",\n    \"order\": {\n        \"orderId\": \"order123349\",\n        \"saleMrpTotal\": 399,\n        \"saleAmount\": 101,\n        \"saleChannel\": \"online\",\n        \"location\": \"BLR\",\n        \"locationId\": \"IND\",\n        \"orderStatus\": \"pending\",\n        \"items\": [\n            {\n                \"productId\": \"123456\",\n                \"sku\": \"124\",\n                \"itemName\": \"i1\",\n                \"category\": \"electronics\",\n                \"subCategory\": \"\",\n                \"brand\": \"Zee5\",\n                \"unitPrice\": 300,\n                \"mrp\": 300,\n                \"quantity\": 3,\n                \"metadata\": {\n                    \"color\": \"blue\",\n                    \"newkey\": \"k1\"\n                }\n            },\n            {\n                \"productId\": \"123456\",\n                \"sku\": \"124\",\n                \"itemName\": \"i1\",\n                \"category\": \"electronics\",\n                \"subCategory\": \"\",\n                \"brand\": \"Zee5\",\n                \"unitPrice\": 100,\n                \"mrp\": 100,\n                \"quantity\": 1,\n                \"metadata\": {\n                    \"color\": \"blue\",\n                    \"newkey\": \"k1\"\n                }\n            }\n        ],\n        \"metadata\": {\n            \"customerType\": \"guests\"\n        }\n    }\n}"
+                    },
+                    "url": {
+                      "raw": "https://{{base_url}}/1/promo/coupons/apply?identity=user123&type=redeem",
+                      "protocol": "https",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "1",
+                        "promo",
+                        "coupons",
+                        "apply"
+                      ],
+                      "query": [
+                        {
+                          "key": "identity",
+                          "value": "user123"
+                        },
+                        {
+                          "key": "type",
+                          "value": "redeem"
+                        }
+                      ]
+                    },
+                    "description": "Redeem coupon code for an order"
+                  },
+                  "response": [
+                    {
+                      "name": "Sample Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                          "raw": "{{base_url}}/",
+                          "host": [
+                            "{{base_url}}"
+                          ],
+                          "path": [
+                            ""
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "Text",
+                      "header": [],
+                      "cookie": [],
+                      "body": "{\n    \"status\": \"success\",\n    \"records\": [\n        {\n            \"couponTimeframe\": [\n                {\n                    \"timeSlot\": {\n                        \"startTime\": \"00:00AM\",\n                        \"endTime\": \"11:59PM\"\n                    },\n                    \"validationDay\": \"All\"\n                }\n            ],\n            \"couponName\": \"SALE100\",\n            \"couponExpiry\": 32494151843,\n            \"couponCodeId\": 2255,\n            \"totalRedemptionUnlimited\": true,\n            \"isApplicable\": true,\n            \"description\": \"\",\n            \"message\": \"\",\n            \"couponExpiryNever\": true,\n            \"termsAndConditions\": [],\n            \"discountEffect\": {\n                \"discountRate\": 99,\n                \"rewardType\": \"cashback\",\n                \"discountType\": \"entireOrder\",\n                \"discountAppliedOn\": \"saleAmount\",\n                \"discountValue\": \"absolute\"\n            },\n            \"totalRedemptionLeft\": 0,\n            \"couponSavings\": {\n                \"customPropertyDiscount\": null,\n                \"orderDiscount\": 0,\n                \"shippingDiscount\": 0,\n                \"orderCashbackPoints\": 0,\n                \"order\": {\n                    \"saleAmount\": 2300,\n                    \"metadata\": {\n                        \"customerType\": \"premium\",\n                        \"transactionId\": \"UPI123456789\"\n                    },\n                    \"saleMrpTotal\": 2500,\n                    \"orderId\": \"order_pos_00e4\",\n                    \"orderStatus\": \"pending\",\n                    \"itemsTotalQuantity\": 0,\n                    \"itemsMrpTotal\": 0,\n                    \"saleChannel\": \"online\",\n                    \"orderShipping\": 100,\n                    \"locationId\": \"IND\",\n                    \"location\": \"BLR\",\n                    \"items\": [],\n                    \"orderNetAmount\": 2300,\n                    \"itemsSaleAmount\": 0\n                }\n            },\n            \"bestCoupon\": \"\",\n            \"identity\": \"j10393\",\n            \"requestId\": \"\",\n            \"redemptionActivationDate\": 1756405800,\n            \"userRedemptionUnlimited\": false,\n            \"redemptionStatus\": true,\n            \"couponCode\": \"SALE100\",\n            \"userRedemptionLeft\": 1\n        }\n    ]\n}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Revert Coupon API",
+              "item": [
+                {
+                  "name": "Revert Coupon API",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-CleverTap-Account-Id",
+                        "value": "{{id}}"
+                      },
+                      {
+                        "key": "X-CleverTap-Passcode",
+                        "value": "{{passcode}}"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"couponCode\": \"SALE100\",\n    \"couponId\": 1695,\n    \"order\": {\n        \"orderId\": \"order123349\",\n        \"saleMrpTotal\": 399,\n        \"saleAmount\": 101,\n        \"saleChannel\": \"online\",\n        \"location\": \"BLR\",\n        \"locationId\": \"IND\",\n        \"orderStatus\": \"pending\",\n        \"items\": [\n            {\n                \"productId\": \"123456\",\n                \"sku\": \"124\",\n                \"itemName\": \"i1\",\n                \"category\": \"electronics\",\n                \"subCategory\": \"\",\n                \"brand\": \"Zee5\",\n                \"unitPrice\": 300,\n                \"mrp\": 300,\n                \"quantity\": 3,\n                \"metadata\": {\n                    \"color\": \"blue\",\n                    \"newkey\": \"k1\"\n                }\n            },\n            {\n                \"productId\": \"123456\",\n                \"sku\": \"124\",\n                \"itemName\": \"i1\",\n                \"category\": \"electronics\",\n                \"subCategory\": \"\",\n                \"brand\": \"Zee5\",\n                \"unitPrice\": 100,\n                \"mrp\": 100,\n                \"quantity\": 1,\n                \"metadata\": {\n                    \"color\": \"blue\",\n                    \"newkey\": \"k1\"\n                }\n            }\n        ],\n        \"metadata\": {\n            \"customerType\": \"guests\"\n        }\n    }\n}"
+                    },
+                    "url": {
+                      "raw": "https://{{base_url}}/1/promo/coupons/apply?identity=user123&type=revert",
+                      "protocol": "https",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "1",
+                        "promo",
+                        "coupons",
+                        "apply"
+                      ],
+                      "query": [
+                        {
+                          "key": "identity",
+                          "value": "user123"
+                        },
+                        {
+                          "key": "type",
+                          "value": "revert"
+                        }
+                      ]
+                    },
+                    "description": "Revert redeemed coupon (cancel order)"
+                  },
+                  "response": [
+                    {
+                      "name": "Sample Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                          "raw": "{{base_url}}/",
+                          "host": [
+                            "{{base_url}}"
+                          ],
+                          "path": [
+                            ""
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "Text",
+                      "header": [],
+                      "cookie": [],
+                      "body": "{\n    \"status\": \"success\",\n    \"records\": [\n        {\n            \"couponTimeframe\": null,\n            \"couponName\": \"\",\n            \"couponExpiry\": 0,\n            \"couponCodeId\": 2255,\n            \"totalRedemptionUnlimited\": false,\n            \"isApplicable\": false,\n            \"description\": \"\",\n            \"message\": \"\",\n            \"couponExpiryNever\": false,\n            \"termsAndConditions\": null,\n            \"discountEffect\": {\n                \"discountRate\": 0,\n                \"rewardType\": \"cashback\",\n                \"discountType\": \"\",\n                \"discountAppliedOn\": \"\",\n                \"discountValue\": \"\"\n            },\n            \"totalRedemptionLeft\": 0,\n            \"couponSavings\": {\n                \"customPropertyDiscount\": null,\n                \"orderDiscount\": 0,\n                \"shippingDiscount\": 0,\n                \"orderCashbackPoints\": 0,\n                \"order\": {\n                    \"saleAmount\": 0,\n                    \"metadata\": null,\n                    \"saleMrpTotal\": 0,\n                    \"orderId\": \"order_pos_00e4\",\n                    \"orderStatus\": \"\",\n                    \"itemsTotalQuantity\": 0,\n                    \"itemsMrpTotal\": 0,\n                    \"saleChannel\": \"\",\n                    \"orderShipping\": 0,\n                    \"locationId\": \"\",\n                    \"location\": \"\",\n                    \"items\": null,\n                    \"orderNetAmount\": 0,\n                    \"itemsSaleAmount\": 0\n                }\n            },\n            \"bestCoupon\": \"\",\n            \"identity\": \"j10393\",\n            \"requestId\": \"\",\n            \"redemptionActivationDate\": 0,\n            \"userRedemptionUnlimited\": false,\n            \"redemptionStatus\": false,\n            \"couponCode\": \"SALE100\",\n            \"userRedemptionLeft\": 0\n        }\n    ]\n}"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Promo - Partner Voucher API Endpoints",
+          "item": [
+            {
+              "name": "Fetch Voucher API",
+              "item": [
+                {
+                  "name": "Fetch Voucher API",
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-CleverTap-Account-Id",
+                        "value": "{{id}}"
+                      },
+                      {
+                        "key": "X-CleverTap-Passcode",
+                        "value": "{{passcode}}"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "https://{{base_url}}/1/promo/vouchers?identity=live55",
+                      "protocol": "https",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "1",
+                        "promo",
+                        "vouchers"
+                      ],
+                      "query": [
+                        {
+                          "key": "identity",
+                          "value": "live55"
+                        }
+                      ]
+                    },
+                    "description": "Fetch partner vouchers assigned to a user"
+                  },
+                  "response": [
+                    {
+                      "name": "Sample Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{base_url}}/",
+                          "host": [
+                            "{{base_url}}"
+                          ],
+                          "path": [
+                            ""
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "Text",
+                      "header": [],
+                      "cookie": [],
+                      "body": "{\n    \"status\": \"success\",\n    \"records\": [\n        {\n            \"metadata\": {\n                \"voucher_image\": \"ytl.com\",\n                \"expiry_days\": \"30\"\n            },\n            \"listExpiry\": 1772217000,\n            \"listTag\": \"test1\",\n            \"partner\": \"AMAZON\",\n            \"voucherStatus\": \"active\",\n            \"campaignId\": 10011,\n            \"assignmentDate\": 1770627915,\n            \"externalVoucherId\": 3906,\n            \"listName\": \"test1\",\n            \"listDescription\": \"Offer is applicable on order above $10\",\n            \"voucherCode\": \"C29jAmzkeBEx\",\n            \"termsAndConditions\": [\n                \"This voucher is valid till month end\",\n                \"Please visit ytl.com to redeem the voucher code\",\n                \"Voucher can be redeemed only once\"\n            ]\n        },\n        {\n            \"redemptionDate\": 1642581935,\n            \"metadata\": {\n                \"voucher_image\": \"ytl.com\",\n                \"expiry_days\": \"30\"\n            },\n            \"redemptionCount\": 1,\n            \"listExpiry\": 1772217000,\n            \"listTag\": \"test1\",\n            \"campaignId\": 982736453,\n            \"externalVoucherId\": 3906,\n            \"termsAndConditions\": [\n                \"This voucher is valid till month end\",\n                \"Please visit ytl.com to redeem the voucher code\",\n                \"Voucher can be redeemed only once\"\n            ],\n            \"partner\": \"AMAZON\",\n            \"voucherStatus\": \"redeemed\",\n            \"assignmentDate\": 1770627778,\n            \"listName\": \"test1\",\n            \"listDescription\": \"Offer is applicable on order above $10\",\n            \"voucherCode\": \"pBsgCCf9I7t7\"\n        },\n        {\n            \"metadata\": {\n                \"voucher_image\": \"ytl.com\",\n                \"expiry_days\": \"30\"\n            },\n            \"listExpiry\": 1772217000,\n            \"listTag\": \"test1\",\n            \"partner\": \"AMAZON\",\n            \"voucherStatus\": \"active\",\n            \"assignmentDate\": 1770626403,\n            \"externalVoucherId\": 3906,\n            \"listName\": \"test1\",\n            \"listDescription\": \"Offer is applicable on order above $10\",\n            \"voucherCode\": \"OsDF6bV39Kg1\",\n            \"termsAndConditions\": [\n                \"This voucher is valid till month end\",\n                \"Please visit ytl.com to redeem the voucher code\",\n                \"Voucher can be redeemed only once\"\n            ]\n        }\n    ]\n}"
+                    }
+                  ]
+                },
+                {
+                  "name": "Assign Voucher API",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-CleverTap-Account-Id",
+                        "value": "{{id}}"
+                      },
+                      {
+                        "key": "X-CleverTap-Passcode",
+                        "value": "{{passcode}}"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": ""
+                    },
+                    "url": {
+                      "raw": "https://{{base_url}}/1/promo/vouchers/assign?identity=live55?campaignId={{campaignId}}&uniqueKey={{uniqueKey}}&voucherListId={{voucherListId}}&identity={{identity}}",
+                      "protocol": "https",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "1",
+                        "promo",
+                        "vouchers",
+                        "assign"
+                      ],
+                      "query": [
+                        {
+                          "key": "campaignId",
+                          "value": "{{campaignId}}"
+                        },
+                        {
+                          "key": "uniqueKey",
+                          "value": "{{uniqueKey}}"
+                        },
+                        {
+                          "key": "voucherListId",
+                          "value": "{{voucherListId}}"
+                        },
+                        {
+                          "key": "identity",
+                          "value": "{{identity}}"
+                        }
+                      ]
+                    },
+                    "description": "Assign partner vouchers to a user"
+                  },
+                  "response": [
+                    {
+                      "name": "Sample Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                          "raw": "{{base_url}}/",
+                          "host": [
+                            "{{base_url}}"
+                          ],
+                          "path": [
+                            ""
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "Text",
+                      "header": [],
+                      "cookie": [],
+                      "body": "{\n    \"status\": \"success\",\n    \"record\": {\n        \"metadata\": {\n            \"K1\": \"V1\",\n            \"K2\": \"V2\"\n        },\n        \"listExpiry\": 1772222400,\n        \"listTag\": \"test\",\n        \"partner\": \"Sanity_19th AUG\",\n        \"campaignId\": 1770274017,\n        \"listName\": \"test\",\n        \"listDescription\": \"test\",\n        \"voucherCode\": \"P441JW\",\n        \"termsAndConditions\": [\n            \"TC1\",\n            \"TC2\"\n        ]\n    }\n}"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Bulletins API Endpoints",
+      "item": [
+        {
+          "name": "Trigger Business Event (Bulletins)",
+          "item": [
+            {
+              "name": "Trigger Business Event for Bulletins",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-CleverTap-Account-Id",
+                    "value": "{{id}}"
+                  },
+                  {
+                    "key": "X-CleverTap-Passcode",
+                    "value": "{{passcode}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"business_event\": \"Program Released\",\n  \"name\": \"Sa Re Ga Ma episode 12\",\n  \"properties\": {\n    \"program_id\": \"234567\",\n    \"language\": \"Hindi\"\n  },\n  \"c-by\": \"jdoe@clevertap.com\",\n  \"when\": \"now\"\n}"
+                },
+                "url": {
+                  "raw": "https://{{base_url}}/1/targets/trigger.json",
+                  "protocol": "https",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "1",
+                    "targets",
+                    "trigger.json"
+                  ]
+                },
+                "description": "Raise a bulletin after business event is triggered"
+              },
+              "response": [
+                {
+                  "name": "Sample Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "Text",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\n  \"status\": \"success\",\n  \"targets\": 1\n}"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Token Vault API Endpoints",
+      "item": [
+        {
+          "name": "Get Access Token for Vault",
+          "item": [
+            {
+              "name": "Get Access Token for Vault",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "grant_type",
+                      "value": "client_credentials"
+                    },
+                    {
+                      "key": "client_id",
+                      "value": "YOUR_CLIENT_ID"
+                    },
+                    {
+                      "key": "client_secret",
+                      "value": "YOUR_CLIENT_SECRET"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "https://{{base_url}}/auth/realms/ct-vault/protocol/openid-connect/token",
+                  "protocol": "https",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "realms",
+                    "ct-vault",
+                    "protocol",
+                    "openid-connect",
+                    "token"
+                  ]
+                },
+                "description": "Get OAuth 2.0 access token for Token Vault APIs"
+              },
+              "response": [
+                {
+                  "name": "Sample Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "Text",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\n  \"access_token\": \"eyJhbGciOiJSUzI1NiIsInR5cCI...\",\n  \"expires_in\": 300,\n  \"token_type\": \"bearer\",\n  \"scope\": \"vault.access\"\n}"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "id",
+      "value": "W67-774-7Z5Z",
+      "type": "string"
+    },
+    {
+      "key": "passcode",
+      "value": "IMQ-BMA-IHKL",
+      "type": "string"
+    },
+    {
+      "key": "type",
+      "value": "application/json",
+      "type": "string"
+    },
+    {
+      "key": "presignedS3URL",
+      "value": "NA",
+      "type": "string"
+    },
+    {
+      "key": "base_url",
+      "value": "in1.api.clevertap.com",
+      "type": "string"
+    }
+  ]
+}
